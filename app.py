@@ -115,7 +115,7 @@ def execute_sql_query(query: str) -> str:
 def load_system_instruction(filepath="system_prompt.txt"):
     """Loads the system instruction from a text file."""
     try:
-        with open('system_prompt.txt', 'r') as f:
+        with open(filepath, 'r') as f:
             return f.read()
     except FileNotFoundError:
         st.warning(f"Warning: '{filepath}' not found. Using a default system instruction.")
