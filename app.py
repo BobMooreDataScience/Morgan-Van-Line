@@ -82,10 +82,10 @@ def get_db_connection():
     """Establishes a connection to the DuckDB database."""
     try:
         # Replace 'move_key_df' with the actual name of your database file
-        con = duckdb.connect(database='move_key_df', read_only=True)
+        con = duckdb.connect(database='move_key_df.duckdb', read_only=True)
         return con
     except duckdb.IOException as e:
-        st.error(f"❌ Error connecting to database file 'move_key_df': {e}")
+        st.error(f"❌ Error connecting to database file 'move_key_df.duckdb': {e}")
         st.info("Please ensure the database file is in the same directory as this app and no other program is using it.")
         return None
     except Exception as e:
@@ -115,7 +115,7 @@ def execute_sql_query(query: str) -> str:
 def load_system_instruction(filepath="system_prompt.txt"):
     """Loads the system instruction from a text file."""
     try:
-        with open(filepath, "r", encoding="utf-8") as f:
+        with open('system_prompt.txt', 'r') as f:
             return f.read()
     except FileNotFoundError:
         st.warning(f"Warning: '{filepath}' not found. Using a default system instruction.")
