@@ -6,6 +6,8 @@ import duckdb
 import pandas as pd
 import os
 
+st.title("My App is Running!") # <--- ADD THIS LINE
+
 # --- 1. APP CONFIGURATION & SETUP ---
 
 # Set up the Streamlit page with a title and icon
